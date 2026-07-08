@@ -146,15 +146,24 @@ app.post('/webhook', async (req, res) => {
       try {
         await handleUserMessage(senderId, messageText);
       } catch (err) {
+        const statusCode = err.response?.status;
         console.error('=== LỖI CHI TIẾT ===');
         console.error('Message:', err.message);
-        console.error('Status:', err.response?.status);
+        console.error('Status:', statusCode);
         console.error('Response data:', JSON.stringify(err.response?.data));
         console.error('====================');
-        try {
-          await sendMessengerMessage(senderId, 'Xin lỗi, hiện tại mình đang gặp sự cố. Bạn thử lại sau nhé!');
-        } catch (sendErr) {
-          console.error('Không thể gửi tin nhắn lỗi:', sendErr.message);
+
+        if (statusCode === 429) {
+          // Hết quota Gemini API: KHÔNG gửi tin nhắn báo lỗi cho khách,
+          // để im lặng và nhân viên thật sẽ vào trả lời trực tiếp trên Messenger.
+          console.error('=> Đã hết quota Gemini (429). Bỏ qua, không phản hồi tự động để nhân viên xử lý thủ công.');
+        } else {
+          // Các lỗi khác (lỗi kỹ thuật, mất kết nối...): vẫn báo cho khách biết để tránh im lặng hoàn toàn
+          try {
+            await sendMessengerMessage(senderId, 'Xin lỗi, hiện tại mình đang gặp sự cố. Bạn thử lại sau nhé!');
+          } catch (sendErr) {
+            console.error('Không thể gửi tin nhắn lỗi:', sendErr.message);
+          }
         }
       }
     }
@@ -172,7 +181,14 @@ async function handleUserMessage(senderId, userText) {
   const isFirstMessage = history.length === 0; // chưa có tin nhắn nào trước đó -> đây là lượt đầu tiên
   history.push({ role: 'user', parts: [{ text: userText }] });
 
-  const aiReply = await callGemini(history, isFirstMessage);
+  let aiReply;
+  try {
+    aiReply = await callGemini(history, isFirstMessage);
+  } catch (err) {
+    // Tắt trạng thái "đang nhập..." trước khi ném lỗi lên cho nơi gọi xử lý (webhook handler)
+    await sendTypingIndicator(senderId, false);
+    throw err;
+  }
 
   history.push({ role: 'model', parts: [{ text: aiReply }] });
   // Giới hạn độ dài lịch sử để tránh phình to
