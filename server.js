@@ -169,9 +169,10 @@ async function handleUserMessage(senderId, userText) {
   await sendTypingIndicator(senderId, true);
 
   const history = conversationHistory.get(senderId) || [];
+  const isFirstMessage = history.length === 0; // chưa có tin nhắn nào trước đó -> đây là lượt đầu tiên
   history.push({ role: 'user', parts: [{ text: userText }] });
 
-  const aiReply = await callGemini(history);
+  const aiReply = await callGemini(history, isFirstMessage);
 
   history.push({ role: 'model', parts: [{ text: aiReply }] });
   // Giới hạn độ dài lịch sử để tránh phình to
@@ -184,14 +185,20 @@ async function handleUserMessage(senderId, userText) {
 // =====================================================
 // 4. GỌI GOOGLE GEMINI API
 // =====================================================
-async function callGemini(history) {
+async function callGemini(history, isFirstMessage) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+
+  // Ghi chú động: chỉ cho phép chào "Chào bạn" ở tin nhắn đầu tiên,
+  // các lượt sau nhắc bot đi thẳng vào nội dung, không lặp lại lời chào
+  const greetingNote = isFirstMessage
+    ? '\n\nLƯU Ý: Đây là tin nhắn ĐẦU TIÊN của khách trong cuộc trò chuyện này, được phép mở đầu bằng lời chào phù hợp (ví dụ "Chào bạn") nếu cần.'
+    : '\n\nLƯU Ý: Đây KHÔNG PHẢI tin nhắn đầu tiên, khách đã trò chuyện trước đó rồi. TUYỆT ĐỐI KHÔNG mở đầu câu trả lời bằng "Chào bạn" hoặc bất kỳ lời chào nào tương tự nữa — hãy đi thẳng vào nội dung trả lời.';
 
   const response = await axios.post(url, {
     contents: history,
     systemInstruction: {
       parts: [{
-        text: SYSTEM_INSTRUCTION
+        text: SYSTEM_INSTRUCTION + greetingNote
       }]
     },
     generationConfig: {
