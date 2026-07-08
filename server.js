@@ -48,11 +48,19 @@ app.post('/webhook', async (req, res) => {
     const messageText = webhookEvent.message?.text;
 
     if (senderId && messageText) {
-      try {
+     try {
         await handleUserMessage(senderId, messageText);
       } catch (err) {
-        console.error('Lỗi khi xử lý tin nhắn:', err.message);
-        await sendMessengerMessage(senderId, 'Xin lỗi, hiện tại mình đang gặp sự cố. Bạn thử lại sau nhé!');
+        console.error('=== LỖI CHI TIẾT ===');
+        console.error('Message:', err.message);
+        console.error('Status:', err.response?.status);
+        console.error('Response data:', JSON.stringify(err.response?.data));
+        console.error('====================');
+        try {
+          await sendMessengerMessage(senderId, 'Xin lỗi, hiện tại mình đang gặp sự cố. Bạn thử lại sau nhé!');
+        } catch (sendErr) {
+          console.error('Không thể gửi tin nhắn lỗi:', sendErr.message);
+        }
       }
     }
   }
