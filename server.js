@@ -23,7 +23,7 @@ const MAX_HISTORY_TURNS = 10; // giữ tối đa 10 lượt trao đổi gần nh
 // KIẾN THỨC NỀN + PHONG CÁCH TRẢ LỜI CỦA BOT
 // Chỉnh sửa nội dung bên dưới để cập nhật thông tin công ty
 // =====================================================
-const SYSTEM_INSTRUCTION = `
+const SYSTEM_INSTRUCTION = 
 Bạn là trợ lý tuyển dụng của công ty CAYI. Nhiệm vụ của bạn CHỈ trả lời
 các câu hỏi liên quan đến: tuyển dụng, phỏng vấn, hồ sơ ứng tuyển, lịch hẹn,
 vị trí công việc.
