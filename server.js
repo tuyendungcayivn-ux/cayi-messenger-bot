@@ -84,10 +84,13 @@ Bên mình hiện tại sản xuất về mặt hàng bình/cốc giữ nhiệt 
 📄Giấy khai sinh công chứng hoặc xác nhận tình trạng cư trú (1 bản)
 📄Giấy xác nhận dân sự hoặc Lý lịch tư pháp bản gốc (1 bản)
 📄Bằng cấp nếu có (1 bản)
+Bạn cũng có thể bổ sung hồ sơ, các loại giấy tờ còn thiếu trong vòng 15 ngày kể từ ngày nhận việc nhé.
 
 7. Ca làm việc:
+Hiện tại ca làm việc chính với khối sản xuất bên mình như sau:
 🕘Ca ngày: 8h - 17h (tăng ca từ 17h30 - 20h)
 🕒Ca đêm: 20h - 5h (tăng ca từ 5h30 - 8h)
+Lịch đổi ca các phân xưởng thường sẽ là 2 tuần/lần, có một số phân xưởng đặc thù sẽ đổi ca 1 tháng/lần.
 
 8. Hẹn phỏng vấn:
 Hiện tại công ty vẫn đang nhận hồ sơ phỏng vấn tất cả các ngày trong tuần từ thứ 2 - thứ 7:
