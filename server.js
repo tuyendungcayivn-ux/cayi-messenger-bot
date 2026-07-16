@@ -56,7 +56,7 @@ Bên mình hiện tại sản xuất về mặt hàng bình/cốc giữ nhiệt 
 
 👷Mức lương Công nhân sản xuất:
 💵Lương cơ bản: 6.000.000đ
-⚖️Phụ cấp: 800.000 - 2.800.000đ, bao gồm:
+⚖️Phụ cấp: 800.000-2.800.000đ, bao gồm:
   + Nhà ở: 300.000đ
   + Chuyên cần: 500.000đ
   + Đặc thù: 2.000.000đ (áp dụng với nhân viên làm việc tại xưởng điện phân & mạ đồng)
