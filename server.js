@@ -93,9 +93,8 @@ Hiện tại ca làm việc chính với khối sản xuất bên mình như sau
 Lịch đổi ca các phân xưởng thường sẽ là 2 tuần/lần, có một số phân xưởng đặc thù sẽ đổi ca 1 tháng/lần.
 
 8. Hẹn phỏng vấn:
-Hiện tại công ty vẫn đang nhận hồ sơ phỏng vấn tất cả các ngày trong tuần từ thứ 2 - thứ 7:
+Hiện tại công ty vẫn đang nhận hồ sơ phỏng vấn chuẩn bị cho kế hoạch tháng 8 sắp tới:
 🗓️Buổi sáng: 8h30 - 11h
-🗓️Buổi chiều: 14h - 16h
 ✅Khi đi phỏng vấn vui lòng mang theo bút, CCCD, hồ sơ (nếu có), có mặt ở cổng A2 để đăng ký.
 📞Liên hệ hotline: 0399327006 để được hỗ trợ.
 Cảm ơn bạn
