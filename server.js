@@ -28,6 +28,13 @@ Bạn là trợ lý tuyển dụng của công ty CAYI. Nhiệm vụ của bạn
 các câu hỏi liên quan đến: tuyển dụng, phỏng vấn, hồ sơ ứng tuyển, lịch hẹn,
 vị trí công việc.
 
+QUAN TRỌNG - NGÔN NGỮ TRẢ LỜI:
+- Luôn tự phát hiện ngôn ngữ mà khách đang dùng trong tin nhắn MỚI NHẤT của họ, và trả lời bằng CHÍNH NGÔN NGỮ ĐÓ (ví dụ: khách nhắn tiếng Anh thì trả lời tiếng Anh, khách nhắn tiếng Trung thì trả lời tiếng Trung, khách nhắn tiếng Việt thì trả lời tiếng Việt...).
+- Toàn bộ dữ liệu trong phần "THÔNG TIN CÔNG TY VÀ TUYỂN DỤNG" bên dưới được viết bằng tiếng Việt. Khi khách dùng ngôn ngữ khác, hãy DỊCH nội dung đó sang ngôn ngữ của khách một cách chính xác, tự nhiên, giữ đúng: số liệu, mức lương, con số, tên riêng (Cayi Technology, tên người...), số điện thoại, email, địa chỉ, đường link Google Maps — KHÔNG dịch hoặc thay đổi các con số/số điện thoại/email/link này.
+- Nếu khách đổi ngôn ngữ giữa cuộc trò chuyện (ví dụ đang nhắn tiếng Việt rồi chuyển sang tiếng Anh), hãy chuyển theo ngôn ngữ MỚI NHẤT của khách ở tin nhắn hiện tại, không giữ ngôn ngữ cũ.
+- Nếu tin nhắn của khách quá ngắn hoặc không đủ để xác định ngôn ngữ (ví dụ chỉ có số, icon, hoặc ký tự không rõ nghĩa), mặc định trả lời bằng tiếng Việt.
+- Riêng chuỗi điều khiển "OFF_TOPIC" ở quy tắc ngay bên dưới thì LUÔN giữ nguyên đúng chữ "OFF_TOPIC" bằng tiếng Anh, KHÔNG dịch, KHÔNG thêm bất kỳ chữ nào khác, dù khách dùng ngôn ngữ gì.
+
 Nếu câu hỏi của khách KHÔNG thuộc các chủ đề trên, hãy CHỈ trả lời đúng
 1 dòng duy nhất: "OFF_TOPIC" (không thêm gì khác).
 
@@ -228,8 +235,8 @@ async function callGemini(history, isFirstMessage) {
   // Ghi chú động: chỉ cho phép chào "Chào bạn" ở tin nhắn đầu tiên,
   // các lượt sau nhắc bot đi thẳng vào nội dung, không lặp lại lời chào
   const greetingNote = isFirstMessage
-    ? '\n\nLƯU Ý: Đây là tin nhắn ĐẦU TIÊN của khách trong cuộc trò chuyện này, được phép mở đầu bằng lời chào phù hợp (ví dụ "Chào bạn") nếu cần.'
-    : '\n\nLƯU Ý: Đây KHÔNG PHẢI tin nhắn đầu tiên, khách đã trò chuyện trước đó rồi. TUYỆT ĐỐI KHÔNG mở đầu câu trả lời bằng "Chào bạn" hoặc bất kỳ lời chào nào tương tự nữa — hãy đi thẳng vào nội dung trả lời.';
+    ? '\n\nLƯU Ý: Đây là tin nhắn ĐẦU TIÊN của khách trong cuộc trò chuyện này, được phép mở đầu bằng lời chào phù hợp (ví dụ "Chào bạn" nếu khách nhắn tiếng Việt, hoặc lời chào tương đương bằng ngôn ngữ mà khách đang dùng) nếu cần.'
+    : '\n\nLƯU Ý: Đây KHÔNG PHẢI tin nhắn đầu tiên, khách đã trò chuyện trước đó rồi. TUYỆT ĐỐI KHÔNG mở đầu câu trả lời bằng "Chào bạn" hoặc bất kỳ lời chào tương tự nào (ở bất kỳ ngôn ngữ nào) nữa — hãy đi thẳng vào nội dung trả lời, vẫn bằng ngôn ngữ mà khách đang dùng ở tin nhắn hiện tại.';
 
   const response = await axios.post(url, {
     contents: history,
