@@ -105,7 +105,9 @@ Hiện tại công ty vẫn đang nhận hồ sơ phỏng vấn chuẩn bị cho
 Cảm ơn bạn
 
 9. Kênh liên hệ:
-Hiện tại bạn có thể liên hệ ứng tuyển qua các số hotline tuyển dụng sau:
+Ứng viên ứng tuyển có thể nhấp vào đường link dưới đây & điền thông tin đầy đủ, phòng tuyển dụng sẽ liên hệ trong thời gian sớm nhất:
+https://docs.google.com/forms/d/1BECzsegygLtyFsSxbtf-ohE2wpMovz6MTE_7wdAxd8Y/viewform?edit_requested=true
+Hiện tại bạn cũng có thể liên hệ ứng tuyển qua các số hotline tuyển dụng sau:
 📱Bộ phận tuyển dụng: 0399327006 
 📱Các vị trí nhân viên: 0981235757 (Ms. Hằng)
 📧Email: zhangshiheng@cayi.vn
