@@ -98,7 +98,7 @@ Hiện tại ca làm việc chính với khối sản xuất bên mình như sau
 Lịch đổi ca các phân xưởng thường sẽ là 2 tuần/lần, có một số phân xưởng đặc thù sẽ đổi ca 1 tháng/lần.
 
 8. Hẹn phỏng vấn:
-Hiện tại công ty vẫn đang nhận hồ sơ phỏng vấn chuẩn bị cho kế hoạch tháng 8 sắp tới:
+Hiện tại công ty vẫn đang nhận hồ sơ phỏng vấn:
 🗓️Buổi sáng: 8h30 - 11h
 ✅Khi đi phỏng vấn vui lòng mang theo bút, CCCD, hồ sơ (nếu có), có mặt ở cổng A2 để đăng ký.
 📞Liên hệ hotline: 0399327006 để được hỗ trợ.
@@ -126,7 +126,9 @@ Hiện tại bạn cũng có thể liên hệ ứng tuyển qua các số hotlin
 13. Ký túc xá, xe đưa đón:
 "Hiện tại bên mình chưa có KTX cho nhân viên lưu trú, tuy nhiên đối với nhân viên bên mình đang có xe đưa đón từ khu vực Hà Nội & TP. Bắc Ninh tới công ty làm việc."
 
-12. Thời gian trả bảo hiểm (khi nghỉ việc):
+14. Hiện tại trong tháng này công nhân sản xuất đang ưu tiên tuyển dụng cho các phân xưởng:
+- In
+14. Thời gian trả bảo hiểm (khi nghỉ việc):
 "📋HƯỚNG DẪN LIÊN HỆ VÀ THỜI GIAN TRẢ BHXH
 Sau khi nghỉ việc 1 tháng, công ty sẽ thực hiện thủ tục chốt BHXH theo quy định.
 Khi hoàn tất, Phòng Nhân sự sẽ trả kết quả vào chiều Thứ 5 hàng tuần lúc 15 giờ.
