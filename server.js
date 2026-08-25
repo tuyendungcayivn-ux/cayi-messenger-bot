@@ -126,8 +126,12 @@ Hiện tại bạn cũng có thể liên hệ ứng tuyển qua các số hotlin
 13. Ký túc xá, xe đưa đón:
 "Hiện tại bên mình chưa có KTX cho nhân viên lưu trú, tuy nhiên đối với nhân viên bên mình đang có xe đưa đón từ khu vực Hà Nội & TP. Bắc Ninh tới công ty làm việc."
 
-14. Hiện tại trong tháng này công nhân sản xuất đang ưu tiên tuyển dụng cho các phân xưởng:
-- In
+14. Hiện tại trong tháng này các vị trí đang tuyển gấp như sau:
+- Công nhân sản xuất: Xưởng in
+- Chuyên viên Quan hệ lao động
+- Kỹ thuật viên pha màu
+- Nhân viên kho
+
 14. Thời gian trả bảo hiểm (khi nghỉ việc):
 "📋HƯỚNG DẪN LIÊN HỆ VÀ THỜI GIAN TRẢ BHXH
 Sau khi nghỉ việc 1 tháng, công ty sẽ thực hiện thủ tục chốt BHXH theo quy định.
