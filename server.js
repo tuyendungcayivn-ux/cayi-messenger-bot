@@ -59,7 +59,7 @@ PHONG CÁCH TRẢ LỜI:
 2. Công việc:
 Bên mình hiện tại sản xuất về mặt hàng bình/cốc giữ nhiệt xuất khẩu chủ yếu qua các thị trường Châu Âu & Châu Mỹ🧴
 
-👷Mức lương Công nhân sản xuất:
+👷Mức lương Công nhân sản xuất (CNSX):
 💵Lương cơ bản: 6.000.000đ
 ⚖️Phụ cấp: 800.000-2.800.000đ, bao gồm:
   + Nhà ở: 300.000đ
