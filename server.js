@@ -18,6 +18,7 @@ const {
 // Lưu ý: đây là bộ nhớ RAM, server restart sẽ mất. Nếu muốn lưu lâu dài, dùng database (Redis/MongoDB...)
 const conversationHistory = new Map();
 const MAX_HISTORY_TURNS = 10; // giữ tối đa 10 lượt trao đổi gần nhất
+const contactInfoShown = new Map(); // đánh dấu đã gợi ý hotline/liên hệ cho từng khách hay chưa
 
 // =====================================================
 // KIẾN THỨC NỀN + PHONG CÁCH TRẢ LỜI CỦA BOT
@@ -213,11 +214,12 @@ async function handleUserMessage(senderId, userText) {
 
   const history = conversationHistory.get(senderId) || [];
   const isFirstMessage = history.length === 0; // chưa có tin nhắn nào trước đó -> đây là lượt đầu tiên
+  const contactInfoAlreadyShown = contactInfoShown.get(senderId) || false; // đã gợi ý hotline/liên hệ ở lượt trước chưa
   history.push({ role: 'user', parts: [{ text: userText }] });
 
   let aiReply;
   try {
-    aiReply = await callGemini(history, isFirstMessage);
+    aiReply = await callGemini(history, isFirstMessage, contactInfoAlreadyShown);
   } catch (err) {
     // Tắt trạng thái "đang nhập..." trước khi ném lỗi lên cho nơi gọi xử lý (webhook handler)
     await sendTypingIndicator(senderId, false);
@@ -228,6 +230,11 @@ async function handleUserMessage(senderId, userText) {
   // Giới hạn độ dài lịch sử để tránh phình to
   conversationHistory.set(senderId, history.slice(-MAX_HISTORY_TURNS * 2));
 
+  // Đánh dấu đã gợi ý hotline/liên hệ nếu câu trả lời lần này có nhắc số hotline
+  if (/0399327006|0981235757/.test(aiReply)) {
+    contactInfoShown.set(senderId, true);
+  }
+
   await sendTypingIndicator(senderId, false);
   await sendMessengerMessage(senderId, aiReply);
 }
@@ -235,7 +242,7 @@ async function handleUserMessage(senderId, userText) {
 // =====================================================
 // 4. GỌI GOOGLE GEMINI API
 // =====================================================
-async function callGemini(history, isFirstMessage) {
+async function callGemini(history, isFirstMessage, contactInfoAlreadyShown) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
   // Ghi chú động: chỉ cho phép chào "Chào bạn" ở tin nhắn đầu tiên,
@@ -244,11 +251,17 @@ async function callGemini(history, isFirstMessage) {
     ? '\n\nLƯU Ý: Đây là tin nhắn ĐẦU TIÊN của khách trong cuộc trò chuyện này, được phép mở đầu bằng lời chào phù hợp (ví dụ "Chào bạn" nếu khách nhắn tiếng Việt, hoặc lời chào tương đương bằng ngôn ngữ mà khách đang dùng) nếu cần.'
     : '\n\nLƯU Ý: Đây KHÔNG PHẢI tin nhắn đầu tiên, khách đã trò chuyện trước đó rồi. TUYỆT ĐỐI KHÔNG mở đầu câu trả lời bằng "Chào bạn" hoặc bất kỳ lời chào tương tự nào (ở bất kỳ ngôn ngữ nào) nữa — hãy đi thẳng vào nội dung trả lời, vẫn bằng ngôn ngữ mà khách đang dùng ở tin nhắn hiện tại.';
 
+  // Ghi chú động: nếu đã từng gợi ý hotline/liên hệ trong cuộc trò chuyện này rồi,
+  // nhắc bot không lặp lại số hotline hoặc câu chào/cảm ơn giống các lượt trước
+  const contactNote = contactInfoAlreadyShown
+  ? '\n\nLƯU Ý: Bạn đã gợi ý số hotline/liên hệ cho khách ở (các) tin nhắn trước trong cuộc trò chuyện này rồi. KHÔNG lặp lại số hotline, KHÔNG lặp lại câu "Cảm ơn bạn" hoặc câu kết tương tự ở tin nhắn này nữa, trừ khi khách hỏi lại thông tin liên hệ. Hãy trả lời thẳng vào nội dung câu hỏi hiện tại.'
+    : '';
+
   const response = await axios.post(url, {
     contents: history,
     systemInstruction: {
       parts: [{
-        text: SYSTEM_INSTRUCTION + greetingNote
+        text: SYSTEM_INSTRUCTION + greetingNote + contactNote
       }]
     },
     generationConfig: {
