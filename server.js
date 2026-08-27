@@ -127,8 +127,11 @@ Hiện tại bạn cũng có thể liên hệ ứng tuyển qua các số hotlin
 13. Ký túc xá, xe đưa đón:
 "Hiện tại bên mình chưa có KTX cho nhân viên lưu trú, tuy nhiên đối với nhân viên bên mình đang có xe đưa đón từ khu vực Hà Nội & TP. Bắc Ninh tới công ty làm việc."
 
-14. Hiện tại trong tháng này các vị trí đang tuyển gấp như sau:
-- Công nhân sản xuất: Xưởng in
+14. Hiện tại trong tháng này đơn hàng đã tăng mạnh trở lại các vị trí đang tuyển gấp như sau:
+Khối công nhân, lao động phổ thông
+- Công nhân sản xuất: Xưởng in, phun bột, lắp ráp, đóng gói
+Các phân xưởng khác tháng 9 cũng sẽ chuẩn bị có kế hoạch tuyển thêm
+Khối nhân viên:
 - Chuyên viên Quan hệ lao động
 - Kỹ thuật viên pha màu
 - Nhân viên kho
