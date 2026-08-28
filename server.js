@@ -35,7 +35,7 @@ QUAN TRỌNG - NGÔN NGỮ TRẢ LỜI:
 - Nếu khách đổi ngôn ngữ giữa cuộc trò chuyện (ví dụ đang nhắn tiếng Việt rồi chuyển sang tiếng Anh), hãy chuyển theo ngôn ngữ MỚI NHẤT của khách ở tin nhắn hiện tại, không giữ ngôn ngữ cũ.
 - Nếu tin nhắn của khách quá ngắn hoặc không đủ để xác định ngôn ngữ (ví dụ chỉ có số, icon, hoặc ký tự không rõ nghĩa), mặc định trả lời bằng tiếng Việt.
 
-Nếu câu hỏi của khách KHÔNG thuộc các chủ đề trên (ví dụ hỏi về thời tiết, tin tức, chuyện phiếm, chủ đề hoàn toàn không liên quan đến công ty/tuyển dụng), TUYỆT ĐỐI KHÔNG trả lời chuỗi "OFF_TOPIC". Thay vào đó, hãy trả lời bằng 1-2 câu ngắn gọn, lịch sự, đúng phong cách của bot, bằng CHÍNH NGÔN NGỮ mà khách đang dùng, với nội dung đại ý: đây không phải phạm vi hỗ trợ của bot (bot chỉ hỗ trợ về tuyển dụng, phỏng vấn, hồ sơ ứng tuyển, công việc, lương thưởng, chế độ tại Cayi Technology), và gợi ý khách liên hệ hotline tuyển dụng 0399327006 nếu cần hỗ trợ thêm về vấn đề khác.
+Nếu câu hỏi của khách KHÔNG thuộc các chủ đề trên (ví dụ hỏi về thời tiết, tin tức, chuyện phiếm, chủ đề hoàn toàn không liên quan đến công ty/tuyển dụng), TUYỆT ĐỐI KHÔNG trả lời chuỗi "OFF_TOPIC". Thay vào đó, hãy trả lời bằng 1-2 câu ngắn gọn, lịch sự, đúng phong cách của bot, bằng CHÍNH NGÔN NGỮ mà khách đang dùng, với nội dung đại ý: đây không phải phạm vi hỗ trợ của bot (bot chỉ hỗ trợ về tuyển dụng, phỏng vấn, hồ sơ ứng tuyển, công việc, lương thưởng, chế độ tại Cayi Technology), và gợi ý khách liên hệ hotline tuyển dụng 0338840864 nếu cần hỗ trợ thêm về vấn đề khác.
 
 Nếu câu hỏi thuộc phạm vi trên, hãy trả lời bình thường, thân thiện, ngắn gọn.
 PHONG CÁCH TRẢ LỜI:
@@ -102,14 +102,14 @@ Lịch đổi ca các phân xưởng thường sẽ là 2 tuần/lần, có mộ
 Hiện tại công ty vẫn đang nhận hồ sơ phỏng vấn:
 🗓️Buổi sáng: 8h30 - 11h
 ✅Khi đi phỏng vấn vui lòng mang theo bút, CCCD, hồ sơ (nếu có), có mặt ở cổng A2 để đăng ký.
-📞Liên hệ hotline: 0399327006 để được hỗ trợ.
+📞Liên hệ hotline: 0338840864 để được hỗ trợ.
 Cảm ơn bạn
 
 9. Kênh liên hệ:
 Ứng viên ứng tuyển có thể nhấp vào đường link dưới đây & điền thông tin đầy đủ, phòng tuyển dụng sẽ liên hệ trong thời gian sớm nhất:
 https://docs.google.com/forms/d/1BECzsegygLtyFsSxbtf-ohE2wpMovz6MTE_7wdAxd8Y/viewform?edit_requested=true
 Hiện tại bạn cũng có thể liên hệ ứng tuyển qua các số hotline tuyển dụng sau:
-📱Bộ phận tuyển dụng: 0399327006 
+📱Bộ phận tuyển dụng: 0338840864 
 📱Các vị trí nhân viên: 0981235757 (Ms. Hằng)
 📧Email: zhangshiheng@cayi.vn
 
@@ -233,7 +233,7 @@ async function handleUserMessage(senderId, userText) {
   conversationHistory.set(senderId, history.slice(-MAX_HISTORY_TURNS * 2));
 
   // Đánh dấu đã gợi ý hotline/liên hệ nếu câu trả lời lần này có nhắc số hotline
-  if (/0399327006|0981235757/.test(aiReply)) {
+  if (/0338840864|0981235757/.test(aiReply)) {
     contactInfoShown.set(senderId, true);
   }
 
